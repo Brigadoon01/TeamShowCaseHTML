@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Meet our talented team members and learn about their expertise and backgrounds."
+    />
+    <title>Our Team - Company Name</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Skip to main content link for screen readers -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header role="banner" class="site-header">
+      <div class="container">
+        <h1 class="site-title">Company Name</h1>
+        <nav role="navigation" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="#" aria-current="page">Team</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" role="main" class="main-content">
+      <div class="container">
+        <!-- Page Header -->
+        <header class="page-header">
+          <h1 class="page-title">Meet Our Team</h1>
+          <p class="page-description">
+            Get to know the talented individuals who make our company great.
+            Each member brings unique skills and expertise to our team.
+          </p>
+        </header>
+
+        <!-- Team Showcase Controls -->
+        <section class="team-controls" aria-label="Team filtering and search">
+          <div class="controls-wrapper">
+            <!-- Search -->
+            <div class="search-container">
+              <label for="team-search" class="search-label">
+                <span class="visually-hidden">Search team members</span>
+                <svg
+                  class="search-icon"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                </svg>
+              </label>
+              <input
+                type="search"
+                id="team-search"
+                class="search-input"
+                placeholder="Search by name or job title..."
+                aria-describedby="search-help"
+                autocomplete="off"
+              />
+              <div id="search-help" class="visually-hidden">
+                Search through team members by their name or job title
+              </div>
+            </div>
+
+            <!-- Department Filter -->
+            <div class="filter-container">
+              <label for="department-filter" class="filter-label"
+                >Filter by department:</label
+              >
+              <select
+                id="department-filter"
+                class="department-select"
+                aria-describedby="filter-help"
+              >
+                <option value="all">All Departments</option>
+                <option value="analytics">Analytics</option>
+                <option value="designs">Designs</option>
+                <option value="engineering">Engineeering</option>
+                <option value="marketing">Marketing</option>
+                <option value="products">Products</option>
+              </select>
+              <div id="filter-help" class="visually-hidden">
+                Filter team members by their department
+              </div>
+            </div>
+
+            <!-- Results Count -->
+            <div class="results-info" aria-live="polite" aria-atomic="true">
+              <span id="results-count" class="results-count"
+                >Loading team members...</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- Loading State -->
+        <section
+          id="loading-state"
+          class="loading-section"
+          aria-label="Loading team members"
+        >
+          <div class="loading-grid">
+            <div class="loading-card" aria-hidden="true">
+              <div class="loading-avatar"></div>
+              <div class="loading-line"></div>
+              <div class="loading-line loading-line-short"></div>
+              <div class="loading-social"></div>
+            </div>
+            <div class="loading-card" aria-hidden="true">
+              <div class="loading-avatar"></div>
+              <div class="loading-line"></div>
+              <div class="loading-line loading-line-short"></div>
+              <div class="loading-social"></div>
+            </div>
+            <div class="loading-card" aria-hidden="true">
+              <div class="loading-avatar"></div>
+              <div class="loading-line"></div>
+              <div class="loading-line loading-line-short"></div>
+              <div class="loading-social"></div>
+            </div>
+            <div class="loading-card" aria-hidden="true">
+              <div class="loading-avatar"></div>
+              <div class="loading-line"></div>
+              <div class="loading-line loading-line-short"></div>
+              <div class="loading-social"></div>
+            </div>
+            <div class="loading-card" aria-hidden="true">
+              <div class="loading-avatar"></div>
+              <div class="loading-line"></div>
+              <div class="loading-line loading-line-short"></div>
+              <div class="loading-social"></div>
+            </div>
+            <div class="loading-card" aria-hidden="true">
+              <div class="loading-avatar"></div>
+              <div class="loading-line"></div>
+              <div class="loading-line loading-line-short"></div>
+              <div class="loading-social"></div>
+            </div>
+          </div>
+          <p class="loading-text">Loading our amazing team members...</p>
+        </section>
+
+        <!-- Error State -->
+        <section
+          id="error-state"
+          class="error-section"
+          style="display: none"
+          role="alert"
+        >
+          <div class="error-content">
+            <svg
+              class="error-icon"
+              aria-hidden="true"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="15" y1="9" x2="9" y2="15"></line>
+              <line x1="9" y1="9" x2="15" y2="15"></line>
+            </svg>
+            <h2 class="error-title">Unable to Load Team Members</h2>
+            <p class="error-message">
+              We're having trouble connecting to our team database. Please try
+              again later.
+            </p>
+            <button
+              type="button"
+              class="retry-button"
+              onclick="teamShowcase.init()"
+            >
+              <svg
+                aria-hidden="true"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="23,4 23,10 17,10"></polyline>
+                <path d="M20.49,15a9,9,0,1,1-2.12-9.36L23,10"></path>
+              </svg>
+              Try Again
+            </button>
+          </div>
+        </section>
+
+        <!-- Team Grid -->
+        <section id="team-section" class="team-section" style="display: none">
+          <h2 class="visually-hidden">Team Members</h2>
+          <div id="team-grid" class="team-grid" role="list">
+            <!-- Team members will be populated here -->
+          </div>
+
+          <!-- No Results -->
+          <div
+            id="no-results"
+            class="no-results"
+            style="display: none"
+            role="status"
+          >
+            <svg
+              class="no-results-icon"
+              aria-hidden="true"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <h3 class="no-results-title">No team members found</h3>
+            <p class="no-results-message">
+              Try adjusting your search or filter to find team members.
+            </p>
+          </div>
+
+          <!-- Pagination -->
+          <nav
+            id="pagination"
+            class="pagination"
+            aria-label="Team members pagination"
+            style="display: none"
+          >
+            <button
+              type="button"
+              id="prev-page"
+              class="pagination-button pagination-prev"
+              disabled
+            >
+              <svg
+                aria-hidden="true"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="15,18 9,12 15,6"></polyline>
+              </svg>
+              <span>Previous</span>
+            </button>
+
+            <div id="page-numbers" class="page-numbers" role="list">
+              <!-- Page numbers will be populated here -->
+            </div>
+
+            <button
+              type="button"
+              id="next-page"
+              class="pagination-button pagination-next"
+              disabled
+            >
+              <span>Next</span>
+              <svg
+                aria-hidden="true"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="9,18 15,12 9,6"></polyline>
+              </svg>
+            </button>
+          </nav>
+        </section>
+      </div>
+    </main>
+
+    <footer role="contentinfo" class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 Company Name. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
