@@ -38,7 +38,7 @@ A fully accessible, responsive team showcase built with semantic HTML, modern CS
 
 ## Project Structure
 
-\`\`\`
+```
 team-showcase-standalone/
 ├── index.html              # Main HTML file
 ├── styles.css              # Complete CSS styles
@@ -47,7 +47,7 @@ team-showcase-standalone/
 └── assets/                 # Optional assets folder
     └── images/
         └── placeholder.svg # Fallback team member image
-\`\`\`
+```
 
 ## Quick Start
 
@@ -59,16 +59,16 @@ team-showcase-standalone/
 ### Installation Steps
 
 1. **Download the Files**
-   \`\`\`bash
+   ```bash
    # Clone or download the standalone implementation files
    git clone <repository-url>
    cd team-showcase-standalone
-   \`\`\`
+   ```
 
 2. **Customize Team Data**
    
    Open `script.js` and update the team data in the `teamData` object:
-   \`\`\`javascript
+   ```javascript
    this.teamData = {
      departments: [
        { id: 1, name: "Engineering", slug: "engineering", count: 4 },
@@ -88,12 +88,12 @@ team-showcase-standalone/
        // Add your team members
      ]
    };
-   \`\`\`
+   ```
 
 3. **Serve the Files**
    
    **Option A: Local Development**
-   \`\`\`bash
+   ```bash
    # Using Python 3
    python -m http.server 8000
    
@@ -102,7 +102,7 @@ team-showcase-standalone/
    
    # Using PHP
    php -S localhost:8000
-   \`\`\`
+   ```
    
    **Option B: Upload to Web Server**
    - Upload files to your web hosting
@@ -119,7 +119,7 @@ team-showcase-standalone/
 
 The team data is stored in the `script.js` file in the `teamData` object:
 
-\`\`\`javascript
+```javascript
 this.teamData = {
   departments: [
     {
@@ -150,13 +150,13 @@ this.teamData = {
     }
   ]
 };
-\`\`\`
+```
 
 ### Display Configuration
 
 Update the configuration object in `script.js`:
 
-\`\`\`javascript
+```javascript
 this.config = {
   // Number of team members per page
   itemsPerPage: 6,
@@ -164,7 +164,7 @@ this.config = {
   // Search input debounce delay (milliseconds)
   debounceDelay: 300
 };
-\`\`\`
+```
 
 ## Customization
 
@@ -172,7 +172,7 @@ this.config = {
 
 The CSS uses custom properties for easy theming:
 
-\`\`\`css
+```css
 :root {
   /* Colors */
   --color-primary: #3b82f6;
@@ -193,12 +193,12 @@ The CSS uses custom properties for easy theming:
   --spacing-lg: 2rem;
   --spacing-xl: 3rem;
 }
-\`\`\`
+```
 
 ### Adding Team Members
 
 1. **Add to the members array** in `script.js`:
-   \`\`\`javascript
+   ```javascript
    {
      id: 10, // Use next available ID
      name: "New Team Member",
@@ -217,68 +217,68 @@ The CSS uses custom properties for easy theming:
      },
      displayOrder: 10
    }
-   \`\`\`
+   ```
 
 2. **Update department count** if adding to existing department
 3. **Add new department** if needed:
-   \`\`\`javascript
+   ```javascript
    {
      id: 6,
      name: "New Department",
      slug: "new-department",
      count: 1
    }
-   \`\`\`
+   ```
 
 ### Image Sources
 
 You can use various image sources:
 
 1. **Unsplash** (used in demo):
-   \`\`\`javascript
+   ```javascript
    photo: "https://images.unsplash.com/photo-ID?w=300&h=300&fit=crop&crop=face"
-   \`\`\`
+   ```
 
 2. **Local images**:
-   \`\`\`javascript
+   ```javascript
    photo: "./assets/images/team-member-name.jpg"
-   \`\`\`
+   ```
 
 3. **CDN or external hosting**:
-   \`\`\`javascript
+   ```javascript
    photo: "https://your-cdn.com/images/team-member.jpg"
-   \`\`\`
+   ```
 
 ### Color Schemes
 
 #### Blue Theme (Default)
-\`\`\`css
+```css
 :root {
   --color-primary: #3b82f6;
   --color-primary-hover: #2563eb;
 }
-\`\`\`
+```
 
 #### Green Theme
-\`\`\`css
+```css
 :root {
   --color-primary: #10b981;
   --color-primary-hover: #059669;
 }
-\`\`\`
+```
 
 #### Purple Theme
-\`\`\`css
+```css
 :root {
   --color-primary: #8b5cf6;
   --color-primary-hover: #7c3aed;
 }
-\`\`\`
+```
 
 ### Layout Modifications
 
 #### Change Grid Columns
-\`\`\`css
+```css
 .team-grid {
   /* 4 columns on large screens */
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -286,10 +286,10 @@ You can use various image sources:
   /* Fixed 3 columns */
   grid-template-columns: repeat(3, 1fr);
 }
-\`\`\`
+```
 
 #### Adjust Card Spacing
-\`\`\`css
+```css
 .team-grid {
   gap: 3rem; /* Increase spacing */
 }
@@ -297,7 +297,7 @@ You can use various image sources:
 .team-member {
   padding: 3rem 2rem; /* More padding */
 }
-\`\`\`
+```
 
 ## Data Management
 
@@ -319,7 +319,7 @@ The application includes basic data validation:
 
 For large teams, you can generate the data structure programmatically:
 
-\`\`\`javascript
+```javascript
 // Example: Convert CSV to team data
 const csvData = `
 Name,Title,Department,Email,LinkedIn
@@ -342,16 +342,16 @@ const members = csvData.split('\n').slice(1).map((row, index) => {
     displayOrder: index + 1
   };
 });
-\`\`\`
+```
 
 ## Troubleshooting
 
 ### Common Issues
 
 #### 1. **Images Not Loading**
-\`\`\`
+```
 Image broken/placeholder showing
-\`\`\`
+```
 
 **Solutions:**
 - Check image URLs are accessible
@@ -360,9 +360,9 @@ Image broken/placeholder showing
 - Add fallback images
 
 #### 2. **Search Not Working**
-\`\`\`
+```
 Search input not filtering results
-\`\`\`
+```
 
 **Solutions:**
 - Check JavaScript console for errors
@@ -370,9 +370,9 @@ Search input not filtering results
 - Ensure search fields contain text
 
 #### 3. **Styling Issues**
-\`\`\`
+```
 Layout broken or styles not applying
-\`\`\`
+```
 
 **Solutions:**
 - Check CSS file is loading
@@ -384,7 +384,7 @@ Layout broken or styles not applying
 
 Enable debug mode by adding console logs:
 
-\`\`\`javascript
+```javascript
 // Add to constructor
 constructor() {
   this.debug = true; // Enable debug mode
@@ -403,7 +403,7 @@ filterAndPaginateMembers() {
   }
   // ... rest of method
 }
-\`\`\`
+```
 
 ## Deployment
 
@@ -439,27 +439,27 @@ filterAndPaginateMembers() {
 ### Performance Optimization
 
 1. **Image Optimization**
-   \`\`\`javascript
+   ```javascript
    // Use optimized image URLs
    photo: "https://images.unsplash.com/photo-ID?w=300&h=300&fit=crop&crop=face&auto=format&q=80"
-   \`\`\`
+   ```
 
 2. **Lazy Loading**
    - Already implemented for images
    - Consider lazy loading for large teams
 
 3. **Minification**
-   \`\`\`bash
+   ```bash
    # Minify CSS and JS for production
    npx terser script.js -o script.min.js
    npx clean-css-cli styles.css -o styles.min.css
-   \`\`\`
+   ```
 
 ## Analytics
 
 ### Adding Analytics
 
-\`\`\`javascript
+```javascript
 // Add to team member click events
 createMemberElement(member) {
   // ... existing code
@@ -477,11 +477,11 @@ createMemberElement(member) {
   
   return article;
 }
-\`\`\`
+```
 
 ### Usage Tracking
 
-\`\`\`javascript
+```javascript
 // Track search usage
 handleSearch() {
   // ... existing code
@@ -497,7 +497,7 @@ handleDepartmentChange() {
   
   this.trackDepartmentFilter(this.state.selectedDepartment);
 }
-\`\`\`
+```
 
 ## Contributing
 
